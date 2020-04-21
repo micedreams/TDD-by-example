@@ -1,9 +1,10 @@
-require_relative './application/delete_me'
+require_relative './application/dollar'
 
 class Application
 
   def initialize
     puts "Hello from Application"
+    
   end
 end
 
