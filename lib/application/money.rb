@@ -7,7 +7,7 @@ class Money
   end
 
   def ==(money)
-    amount == money.amount && money.class == self.class
+    amount == money.amount && money.currency == currency
   end
 
   def self.dollar(amount)
@@ -19,9 +19,18 @@ class Money
   end
 
   def times(multiplier)
+    nil
   end
 
   def currency
     @currency
+  end
+
+  def to_s
+    "#{amount} #{currency}"
+  end
+
+  def times(multiplier)
+    Money.new(amount * multiplier, @currency)
   end
 end

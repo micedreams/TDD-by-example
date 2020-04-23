@@ -29,4 +29,8 @@ describe "Unit Test of Application" do
     expect("USD").to eq(Money.dollar(1).currency)
     expect("CHF").to eq(Money.franc(1).currency)
   end
+
+  it "test different class equality" do
+    expect(Money.new(10,"CHF")).to eq(Franc.new(10,"CHF"))
+  end
 end
