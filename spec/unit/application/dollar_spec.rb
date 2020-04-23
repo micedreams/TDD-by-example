@@ -24,4 +24,9 @@ describe "Unit Test of Application" do
 
     expect(five.times(3)).to eq(Money.franc(15))
   end
+
+  it "test currency" do
+    expect("USD").to eq(Money.dollar(1).currency)
+    expect("CHF").to eq(Money.franc(1).currency)
+  end
 end
