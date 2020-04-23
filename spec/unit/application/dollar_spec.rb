@@ -2,26 +2,26 @@ require "spec_helper"
 
 describe "Unit Test of Application" do
   it "test  multiplication" do
-    five = Dollar.new(5)
+    five = Money.dollar(5)
 
-    expect(five.times(2)).to eq(Dollar.new(10))
+    expect(five.times(2)).to eq(Money.dollar(10))
 
-    expect(five.times(3)).to eq(Dollar.new(15))
+    expect(five.times(3)).to eq(Money.dollar(15))
   end
 
   it "test equality" do
-    expect(Dollar.new(5)).to eq(Dollar.new(5))
-    expect(Dollar.new(5)).not_to eq(Dollar.new(6))
-    expect(Franc.new(5)).to eq(Franc.new(5))
-    expect(Franc.new(5)).not_to eq(Franc.new(6))
-    expect(Dollar.new(5)).not_to eq(Franc.new(5))
+    expect(Money.dollar(5)).to eq(Money.dollar(5))
+    expect(Money.dollar(5)).not_to eq(Money.dollar(6))
+    expect(Money.franc(5)).to eq(Money.franc(5))
+    expect(Money.franc(5)).not_to eq(Money.franc(6))
+    expect(Money.dollar(5)).not_to eq(Money.franc(5))
   end
 
   it "test Franc multiplication" do
-    five = Franc.new(5)
+    five = Money.franc(5)
 
-    expect(five.times(2)).to eq(Franc.new(10))
+    expect(five.times(2)).to eq(Money.franc(10))
 
-    expect(five.times(3)).to eq(Franc.new(15))
+    expect(five.times(3)).to eq(Money.franc(15))
   end
 end
