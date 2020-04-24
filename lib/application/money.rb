@@ -26,17 +26,16 @@ class Money
     @currency
   end
 
-  def times(multiplier)
+  def *(multiplier)
     Money.new(amount * multiplier, @currency)
   end
 
-  def +(money)
-    Sum.new(self, money)
+  def +(addend)
+    Sum.new(self, addend)
   end
 
-  def reduce(bank , to_currency)
-    rate = bank.rate(currency,to_currency)
-    Money.new(amount/rate, to_currency)
+  def reduce(bank, to_currency)
+    rate = bank.rate(currency, to_currency)
+    Money.new(amount / rate, to_currency)
   end
-
 end

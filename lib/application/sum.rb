@@ -6,9 +6,16 @@ class Sum
     @addend = addend
   end
 
+  def +(addend)
+    Sum.new(self, addend)
+  end
 
   def reduce(bank, to)
-    amount = augend.amount + addend.amount
+    amount = augend.reduce(bank, to).amount + addend.reduce(bank, to).amount
     Money.new(amount, to)
+  end
+
+  def *(multiplier)
+    Sum.new(augend * multiplier, augend * multiplier)
   end
 end
