@@ -49,6 +49,13 @@ describe "Unit Test of Application" do
     expect(Money.dollar(1)).to eq(result)
   end
 
-  
+  it "test reduce money different currency" do
+    bank = Bank.new
+    bank.add_rate("CHF","USD",2)
+    result = bank.reduce(Money.franc(2),"USD")
+    expect(Money.dollar(1)).to eq(result)
+  end
+
+
 
 end
