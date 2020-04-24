@@ -22,13 +22,33 @@ describe "Unit Test of Application" do
   end
 
   it "test simple addition" do
-    sum = Money.dollar(5).+(Money.dollar(5))
-    expect(sum).to eq(Money.dollar(10))
-    
     five = Money.dollar(5)
     sum = five.+(five)
     bank = Bank.new
-    reduced = bank.reduce(sum,"USD")
+    reduced = bank.reduce(sum, "USD")
     expect(Money.dollar(10)).to eq(reduced)
   end
+
+  it "test + returns sum" do
+    five = Money.dollar(5)
+    result = five.+(five)
+    expect(five).to eq(result.augend)
+    expect(five).to eq(result.addend)
+  end
+
+  it "test reduce sum" do
+    sum = Sum.new(Money.dollar(3),Money.dollar(4))
+    bank = Bank.new
+    result = bank.reduce(sum,"USD")
+    expect(Money.dollar(7)).to eq(result)
+  end
+
+  it "test reduce money" do
+    bank = Bank.new
+    result = bank.reduce(Money.dollar(1),"USD")
+    expect(Money.dollar(1)).to eq(result)
+  end
+
+  
+
 end

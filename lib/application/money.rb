@@ -31,6 +31,10 @@ class Money
   end
 
   def +(money)
-    Money.new(amount + money.amount, @currency)
+    Sum.new(self, money)
+  end
+
+  def reduce(to)
+    self
   end
 end
