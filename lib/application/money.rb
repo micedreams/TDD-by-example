@@ -26,11 +26,11 @@ class Money
     @currency
   end
 
-  def to_s
-    "#{amount} #{currency}"
-  end
-
   def times(multiplier)
     Money.new(amount * multiplier, @currency)
+  end
+
+  def +(money)
+    Money.new(amount + money.amount, @currency)
   end
 end
